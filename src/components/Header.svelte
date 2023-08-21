@@ -1,37 +1,110 @@
-<!-- <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> -->
-
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+<script>
 	import { Hamburger } from 'svelte-hamburgers';
 	import Icon from '@iconify/svelte';
 
-	let open = true;
+	let open;
 </script>
 
-<nav class="flex relative justify-between items-center h-20 px-6">
-	<p class="font-bold text-2xl">Discover Movies</p>
-	<div class="flex items-center space-x-4 text-2xl">
+<nav class="header">
+	<p>Discover Movies</p>
+	<div>
 		<iconify-icon icon="material-symbols:menu" />
-
-		<!-- <button><Icon icon="teenyicons:filter-outline" class=" text-green-600" /></button> -->
+		<Icon icon="teenyicons:filter-outline" />
 		<Hamburger bind:open />
 	</div>
-	{#if open}
-		<div class="absolute bg-white top-0 left-0 w-[50%] h-screen border border-red-800">
-			<div class="h-20 flex border border-red-800 items-center justify-center">
-				<p class="text-2xl font-bold">cinesphere</p>
-			</div>
-			<div>
-				<!-- search icon -->
-				<input type="search" name="search" id="search" class="" />
-			</div>
-			<ul>
-				<li>Home</li>
-				<li>Trending</li>
-				<li>Movies</li>
-				<li>TV's</li>
-				<li>Bookmarks</li>
-				<li>Settings</li>
-			</ul>
-		</div>
-	{/if}
 </nav>
+
+{#if open}
+	<div class="nav-menu">
+		<div>
+			<p>cinesphere</p>
+		</div>
+		<div>
+			<Icon icon="ic:outline-search" />
+			<input type="search" name="search" id="search" placeholder="Search Movies..." class="" />
+		</div>
+		<ul>
+			<li>
+				<a href="/">
+					<Icon icon="carbon:home" />
+					<span>Home</span></a
+				>
+			</li>
+			<li>
+				<a href="/trending"><Icon icon="mdi:fire" /><span>Trending</span></a>
+			</li>
+			<li><a href="/movies"><Icon icon="fluent-mdl2:my-movies-t-v" /><span>Movies</span></a></li>
+			<li><a href="/tvs"><Icon icon="iconoir:tv" /><span>TV's</span></a></li>
+			<li>
+				<a href="/bookmarks"><Icon icon="material-symbols:bookmarks" /><span>Bookmarks</span></a>
+			</li>
+			<li><a href="/settings"><Icon icon="system-uicons:settings" /><span>Settings</span></a></li>
+		</ul>
+	</div>
+{/if}
+
+<style>
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1rem;
+		height: 10rem;
+		position: relative;
+	}
+	.header p {
+		font-size: 1.8rem;
+	}
+	.header div {
+		display: flex;
+		align-items: center;
+	}
+
+	.nav-menu {
+		outline: 1px solid red;
+		width: 50%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		background-color: white;
+	}
+	.nav-menu div:nth-child(1) {
+		height: 10rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.nav-menu div:nth-child(1) p {
+		font-size: 2.8rem;
+		font-weight: bold;
+	}
+
+	.nav-menu div:nth-child(2) {
+		width: 80%;
+		display: flex;
+		gap: 1rem;
+		border: 1px solid red;
+		margin: 0 auto;
+	}
+	.nav-menu div:nth-child(2) input {
+		max-width: 100%;
+		outline: none;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		font-size: 1.6rem;
+		margin-top: 2rem;
+	}
+	ul > li > a {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		padding: 0.5rem 2rem;
+		color: black;
+		text-decoration: none;
+	}
+</style>
