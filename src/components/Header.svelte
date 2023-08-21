@@ -3,13 +3,18 @@
 	import Icon from '@iconify/svelte';
 
 	let open;
+	export let currentPage;
+	console.log(currentPage);
+	// if (currentPage === ) {
+
+	// }
 </script>
 
 <nav class="header">
-	<p>Discover Movies</p>
+	<p>{currentPage} Movies</p>
 	<div>
 		<iconify-icon icon="material-symbols:menu" />
-		<Icon icon="teenyicons:filter-outline" />
+		<Icon icon="teenyicons:filter-outline" class="icon" />
 		<Hamburger bind:open />
 	</div>
 </nav>
@@ -44,6 +49,10 @@
 {/if}
 
 <style>
+	.icon {
+		font-size: 2rem;
+		border: 1px solid red;
+	}
 	.header {
 		display: flex;
 		justify-content: space-between;
@@ -54,6 +63,7 @@
 	}
 	.header p {
 		font-size: 1.8rem;
+		text-transform: capitalize;
 	}
 	.header div {
 		display: flex;

@@ -13,7 +13,8 @@
 <style>
 	div {
 		display: grid;
-		grid-template-columns: 2;
-		gap: 2rem;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.4rem;
+		padding: 0 1.4rem;
 	}
 </style>

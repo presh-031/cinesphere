@@ -3,8 +3,6 @@
 
 	export let data;
 	const trending = data.trending;
-
-	console.log(trending);
 </script>
 
 <section>
