@@ -8,4 +8,6 @@
 </script>
 
 <Header {currentPage} />
-<slot />
+<main>
+	<slot />
+</main>

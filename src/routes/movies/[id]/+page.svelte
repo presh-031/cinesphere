@@ -7,10 +7,15 @@
 </script>
 
 <div class="movie-details-page">
-	<div class="back-btn">
+	<button
+		class="back-btn"
+		on:click={() => {
+			history.back();
+		}}
+	>
 		<span>&lt;</span>
 		<span>Back</span>
-	</div>
+	</button>
 
 	<div class="backdrop-container">
 		<img
@@ -52,6 +57,7 @@
 		padding: 0 1rem;
 	}
 	.back-btn {
+		all: unset;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
@@ -89,6 +95,7 @@
 		color: white;
 		padding: 0.6rem 1.2rem;
 		border-radius: 0.4rem;
+		font-size: 1.2rem;
 	}
 	.title {
 		margin-top: 2rem;
@@ -112,6 +119,7 @@
 		align-items: center;
 		border-radius: 0.4rem;
 		justify-content: center;
+		font-size: 1.2rem;
 	}
 	.movie-votes > span:nth-child(1) {
 		font-size: 2rem;
@@ -123,6 +131,7 @@
 		flex-direction: column;
 		justify-content: center;
 		gap: 0.6rem;
+		font-size: 1.2rem;
 	}
 	.movie-stats > p > span {
 		color: rgb(57, 124, 36);
@@ -130,5 +139,6 @@
 
 	.overview {
 		margin: 1rem 0 3rem 0;
+		font-size: 1.2rem;
 	}
 </style>

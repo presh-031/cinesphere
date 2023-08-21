@@ -62,6 +62,7 @@
 		padding: 0 1rem;
 		height: 10rem;
 		position: relative;
+		border: 1px solid red;
 	}
 	.header p {
 		font-size: 1.8rem;
