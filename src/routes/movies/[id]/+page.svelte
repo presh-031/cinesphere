@@ -1,28 +1,111 @@
 <script>
+	import Icon from '@iconify/svelte';
+
 	export let data;
 	const movieDetail = data.movieDetail;
 
 	console.log(movieDetail);
 </script>
 
-<div>
-	<div>
-		<p>Back</p>
+<div class="movie-details-page">
+	<div class="back-btn">
+		<span>&lt;</span>
+		<span>Back</span>
 	</div>
 
-	<div>
+	<div class="backdrop-container">
 		<img
 			src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
 			alt={movieDetail.title}
 		/>
-		<div>Play</div>
+		<div><Icon icon="ion:play-sharp" /></div>
 	</div>
 
-	<div>
+	<div class="genres-container">
 		{#each movieDetail.genres as genre}
-			<div><span>{genre.name}</span></div>
+			<div class="genre"><span>{genre.name}</span></div>
 		{/each}
 	</div>
 
-	<p>{movieDetail.title}</p>
+	<p class="title">{movieDetail.title}</p>
+
+	<div class="movie-numbers">
+		<div class="movie-votes">
+			<span>{movieDetail.vote_average}</span>
+			<span>{movieDetail.vote_count}</span>
+		</div>
+		<div class="movie-stats">
+			<p>Release Date: {movieDetail.release_date}</p>
+			<p>Duration: {movieDetail.runtime}</p>
+			<p>Status: {movieDetail.status}</p>
+		</div>
+	</div>
 </div>
+
+<style>
+	.movie-details-page {
+		padding: 0 1rem;
+	}
+	.back-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 1.4rem;
+		padding: 0.6rem 1.2rem;
+		border: 1px solid rgb(76, 167, 49);
+		color: rgb(76, 167, 49);
+		border-radius: 0.8rem;
+		margin-bottom: 1rem;
+	}
+	.backdrop-container {
+		position: relative;
+		margin-bottom: 1rem;
+	}
+	.backdrop-container div {
+		position: absolute;
+		bottom: 2rem;
+		left: 2rem;
+		border: 1px solid rgb(76, 167, 49);
+		padding: 1rem;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.genres-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+	}
+	.genre {
+		background-color: rgb(76, 167, 49);
+		border: none;
+		color: white;
+		padding: 0.6rem 1.2rem;
+		border-radius: 0.4rem;
+	}
+	.title {
+		margin-top: 2rem;
+		color: rgb(93, 202, 59);
+		font-size: 2.8rem;
+		font-weight: 700;
+	}
+
+	.movie-numbers {
+		display: flex;
+		gap: 1rem;
+		border: 1px solid red;
+		margin-top: 1rem;
+	}
+	.movie-votes {
+		border: 1px solid red;
+		height: 10rem;
+		width: 10rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
