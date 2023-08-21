@@ -1,10 +1,9 @@
 <script>
 	import Icon from '@iconify/svelte';
+	import Casts from '../../../components/Casts.svelte';
 
 	export let data;
 	const movieDetail = data.movieDetail;
-
-	console.log(movieDetail);
 </script>
 
 <div class="movie-details-page">
@@ -27,7 +26,7 @@
 		{/each}
 	</div>
 
-	<p class="title">{movieDetail.title}</p>
+	<h1 class="title">{movieDetail.title}</h1>
 
 	<div class="movie-numbers">
 		<div class="movie-votes">
@@ -35,11 +34,17 @@
 			<span>{movieDetail.vote_count}</span>
 		</div>
 		<div class="movie-stats">
-			<p>Release Date: {movieDetail.release_date}</p>
-			<p>Duration: {movieDetail.runtime}</p>
-			<p>Status: {movieDetail.status}</p>
+			<p><span>Release Date:</span> {movieDetail.release_date}</p>
+			<p><span>Duration:</span> {movieDetail.runtime}</p>
+			<p><span>Status:</span> {movieDetail.status}</p>
 		</div>
 	</div>
+
+	<!-- <button>Bookmark</button> -->
+
+	<p class="overview">{movieDetail.overview}</p>
+
+	<Casts />
 </div>
 
 <style>
@@ -52,8 +57,8 @@
 		gap: 0.4rem;
 		font-size: 1.4rem;
 		padding: 0.6rem 1.2rem;
-		border: 1px solid rgb(76, 167, 49);
-		color: rgb(76, 167, 49);
+		border: 1px solid rgb(57, 124, 36);
+		color: rgb(57, 124, 36);
 		border-radius: 0.8rem;
 		margin-bottom: 1rem;
 	}
@@ -65,7 +70,7 @@
 		position: absolute;
 		bottom: 2rem;
 		left: 2rem;
-		border: 1px solid rgb(76, 167, 49);
+		border: 1px solid rgb(57, 124, 36);
 		padding: 1rem;
 	}
 
@@ -79,7 +84,7 @@
 		gap: 0.8rem;
 	}
 	.genre {
-		background-color: rgb(76, 167, 49);
+		background-color: rgb(57, 124, 36);
 		border: none;
 		color: white;
 		padding: 0.6rem 1.2rem;
@@ -95,17 +100,35 @@
 	.movie-numbers {
 		display: flex;
 		gap: 1rem;
-		border: 1px solid red;
 		margin-top: 1rem;
 	}
 	.movie-votes {
-		border: 1px solid red;
+		border: 1px solid rgb(57, 124, 36);
 		height: 10rem;
 		width: 10rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
 		align-items: center;
+		border-radius: 0.4rem;
 		justify-content: center;
+	}
+	.movie-votes > span:nth-child(1) {
+		font-size: 2rem;
+		color: rgb(57, 124, 36);
+	}
+
+	.movie-stats {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.6rem;
+	}
+	.movie-stats > p > span {
+		color: rgb(57, 124, 36);
+	}
+
+	.overview {
+		margin: 1rem 0 3rem 0;
 	}
 </style>
