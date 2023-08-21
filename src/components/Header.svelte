@@ -11,9 +11,11 @@
 </script>
 
 <nav class="header">
-	<p>{currentPage} Movies</p>
+	<p>
+		<!-- {currentPage} -->
+		Movies
+	</p>
 	<div>
-		<iconify-icon icon="material-symbols:menu" />
 		<Icon icon="teenyicons:filter-outline" class="icon" />
 		<Hamburger bind:open />
 	</div>

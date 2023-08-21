@@ -3,10 +3,8 @@
 	import Header from '../components/Header.svelte';
 
 	import { page } from '$app/stores';
-
 	const url = $page.url;
-
-	const currentPage = url.pathname.slice(1);
+	const currentPage = url.pathname;
 </script>
 
 <Header {currentPage} />

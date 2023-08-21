@@ -2,11 +2,14 @@
 	export let movie;
 </script>
 
-<div class="">
+<a href={`/movies/${movie.id}`}>
 	<img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-</div>
+</a>
 
 <style>
+	a {
+		text-decoration: none;
+	}
 	img {
 		width: 100%;
 		height: 25rem;
