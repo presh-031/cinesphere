@@ -4,6 +4,8 @@
 
 	export let data;
 	const movieDetail = data.movieDetail;
+
+	console.log(movieDetail.backdrop_path);
 </script>
 
 <div class="movie-details-page">
@@ -21,6 +23,8 @@
 		<img
 			src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}
 			alt={movieDetail.title}
+			width={355}
+			height={200}
 		/>
 		<div><Icon icon="ion:play-sharp" /></div>
 	</div>
@@ -45,7 +49,7 @@
 		</div>
 	</div>
 
-	<!-- <button>Bookmark</button> -->
+	<button>Bookmark</button>
 
 	<p class="overview">{movieDetail.overview}</p>
 
@@ -76,12 +80,17 @@
 		position: absolute;
 		bottom: 2rem;
 		left: 2rem;
-		border: 1px solid rgb(57, 124, 36);
-		padding: 1rem;
+		border: 2px solid rgb(57, 124, 36);
+		border-radius: 0.8rem;
+		display: grid;
+		place-items: center;
+		height: 3rem;
+		width: 4rem;
 	}
 
 	img {
 		width: 100%;
+		height: 20rem;
 	}
 
 	.genres-container {
@@ -137,8 +146,17 @@
 		color: rgb(57, 124, 36);
 	}
 
+	button {
+		margin: 1rem 0;
+		background: transparent;
+		color: rgb(57, 124, 36);
+		border: 1px solid;
+		padding: 0.5rem;
+		border-radius: 0.4rem;
+	}
+
 	.overview {
-		margin: 1rem 0 3rem 0;
+		margin-bottom: 3rem;
 		font-size: 1.2rem;
 	}
 </style>
