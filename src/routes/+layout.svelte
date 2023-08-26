@@ -7,7 +7,7 @@
 	const currentPage = url.pathname;
 </script>
 
-<Header {currentPage} />
+<Header />
 <main>
 	<slot />
 </main>

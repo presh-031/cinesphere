@@ -3,11 +3,6 @@
 	import NavMenu from './NavMenu.svelte';
 
 	let isOpen = false;
-
-	export let currentPage;
-	// console.log(currentPage);
-	// if (currentPage === ) {
-	// }
 </script>
 
 <header class="header">

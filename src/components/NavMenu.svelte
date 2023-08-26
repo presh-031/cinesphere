@@ -14,8 +14,14 @@
 	];
 </script>
 
-<nav class={isOpen ? 'nav-container nav-container-open' : 'nav-container $'}>
-	<div class="nav">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<nav
+	on:click={() => (isOpen = !isOpen)}
+	class={`nav-container ${isOpen ? 'nav-container-open' : ''}`}
+>
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div on:click={(e) => e.stopPropagation()} class="nav">
 		<div>
 			<p>cinesphere</p>
 		</div>
@@ -36,22 +42,25 @@
 
 <style>
 	.nav-container {
-		outline: 1px solid red;
 		width: 100%;
-		position: absolute;
+		height: 100vh;
+		position: fixed;
 		z-index: 1000;
 		left: -100%;
 		top: 0;
-		min-height: 100vh;
+		background-color: rgba(0, 0, 0, 0.6);
+		transition: left 0.3s ease-in-out;
 	}
 	.nav-container-open {
 		left: 0;
 	}
 	.nav {
 		width: 50%;
-		outline: 1px solid red;
+		height: 100%;
 		background-color: white;
+		transition: font-weight 0.3s ease-in-out;
 	}
+
 	.nav div:nth-child(1) {
 		height: 10rem;
 		display: flex;
